@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Jom!</string>
+    <string name="app_tagline">Fast, Secure &amp; Crystal-Clear Messaging &amp; Calling</string>
+    <string name="sign_in_google">Sign in with Google</string>
+    <string name="nav_chats">Chats</string>
+    <string name="nav_calls">Calls</string>
+    <string name="nav_contacts">Contacts</string>
+    <string name="nav_settings">Settings</string>
+    <string name="search_placeholder">Search messages, contacts, groups, or files…</string>
+    <string name="new_chat">New Chat</string>
+    <string name="new_group">New Group</string>
+    <string name="new_call">New Call</string>
+    <string name="add_contact">Add Contact</string>
+    <string name="send_message">Send message</string>
+    <string name="record_voice">Hold or tap to record voice note</string>
+    <string name="voice_call">Voice Call</string>
+    <string name="video_call">Video Call</string>
+    <string name="sign_out">Log Out</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="offline_banner">Offline Mode — Messages queued locally and will auto-sync</string>
+</resources>

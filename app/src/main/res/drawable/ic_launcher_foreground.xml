@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Outer Interlocking Cyan & White Swirl Vortex Rings (Strictly inside 66dp safe zone: 21..87) -->
+    <!-- Top-Left to Bottom-Left Cyan Wave Ribbon -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M68,26 C52,19 32,27 26,44 C21,58 27,74 42,81"
+        android:strokeWidth="4.2"
+        android:strokeColor="#00E5FF"
+        android:strokeLineCap="round" />
+
+    <!-- Bottom-Right to Top-Right Crisp White Wave Ribbon -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M40,82 C56,89 76,81 82,64 C87,50 81,38 72,33"
+        android:strokeWidth="4.2"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" />
+
+    <!-- Middle Interlocking Sky-Blue Wave Ring -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M34,38 C44,27 63,28 73,40 C81,50 78,66 66,74 C54,82 37,77 31,64"
+        android:strokeWidth="3.8"
+        android:strokeColor="#29B6F6"
+        android:strokeLineCap="round" />
+
+    <!-- Inner Glowing Cyan Core Ring framing "Jom!" -->
+    <path
+        android:fillColor="#0626A8"
+        android:pathData="M54,35 A19,19 0 1,1 53.9,35 Z"
+        android:strokeWidth="3.5"
+        android:strokeColor="#00E5FF" />
+
+    <!-- White Inner Accent Arcs -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M39,43 C45,35 58,34 66,40"
+        android:strokeWidth="2.6"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M69,65 C63,73 50,74 42,68"
+        android:strokeWidth="2.6"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" />
+
+    <!-- Glowing Cyan Plus (+) Symbol at Top-Right (matching uploaded Jom! icon) -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M75,25 L75,37 M69,31 L81,31"
+        android:strokeWidth="4.4"
+        android:strokeColor="#00E5FF"
+        android:strokeLineCap="round" />
+
+    <!-- Center Bold Geometric White "Jom!" Typography -->
+    <!-- 'J' -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M43.5,48.5 L43.5,56.5 C43.5,59.2 41.8,60.5 39.5,59.5"
+        android:strokeWidth="3.1"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- 'o' -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M50.5,52 A4.0,4.0 0 1,1 50.49,52 Z"
+        android:strokeWidth="2.9"
+        android:strokeColor="#FFFFFF" />
+
+    <!-- 'm' -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M57.5,59.5 L57.5,52.2 C57.5,51.5 61.5,51.5 61.5,53.8 L61.5,59.5 M61.5,53.5 C61.5,51.5 65.5,51.5 65.5,53.8 L65.5,59.5"
+        android:strokeWidth="2.7"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- '!' Exclamation mark stem & dot -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M70.0,48.5 L70.0,55.5"
+        android:strokeWidth="3.0"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M70.0,58.2 A1.6,1.6 0 1,1 69.99,58.2 Z" />
+</vector>

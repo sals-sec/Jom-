@@ -1,0 +1,167 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Public and account profile for a Jom! user",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Firebase Auth UID" },
+        "username": { "type": "string", "description": "Unique handle (@username)" },
+        "displayName": { "type": "string", "description": "Full display name" },
+        "bio": { "type": "string", "description": "Status/about message" },
+        "avatarUrl": { "type": "string", "description": "Profile photo URL" },
+        "phone": { "type": "string", "description": "Optional verified phone" },
+        "email": { "type": "string", "description": "Optional verified email" },
+        "isOnline": { "type": "boolean", "description": "Online presence indicator" },
+        "lastSeen": { "type": "string", "format": "date-time", "description": "Server timestamp of last activity" },
+        "privacyLastSeen": { "type": "string", "enum": ["EVERYONE", "CONTACTS", "NOBODY"] },
+        "privacyAvatar": { "type": "string", "enum": ["EVERYONE", "CONTACTS", "NOBODY"] },
+        "privacyBio": { "type": "string", "enum": ["EVERYONE", "CONTACTS", "NOBODY"] },
+        "readReceipts": { "type": "boolean" },
+        "typingIndicator": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "username", "displayName", "isOnline", "createdAt", "updatedAt"]
+    },
+    "ContactEntry": {
+      "title": "ContactEntry",
+      "description": "User's personal contact book entry",
+      "type": "object",
+      "properties": {
+        "contactId": { "type": "string" },
+        "ownerId": { "type": "string" },
+        "contactUserId": { "type": "string" },
+        "username": { "type": "string" },
+        "displayName": { "type": "string" },
+        "phone": { "type": "string" },
+        "avatarUrl": { "type": "string" },
+        "bio": { "type": "string" },
+        "isOnline": { "type": "boolean" },
+        "isBlocked": { "type": "boolean" },
+        "isFavorite": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["contactId", "ownerId", "contactUserId", "username", "displayName", "isBlocked", "createdAt"]
+    },
+    "Conversation": {
+      "title": "Conversation",
+      "description": "1-to-1 or Group chat conversation metadata",
+      "type": "object",
+      "properties": {
+        "conversationId": { "type": "string" },
+        "ownerId": { "type": "string", "description": "Creator UID" },
+        "participantIds": { "type": "array", "description": "Bounded list of member UIDs" },
+        "adminIds": { "type": "array", "description": "Bounded list of admin UIDs" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "avatarUrl": { "type": "string" },
+        "isGroup": { "type": "boolean" },
+        "lastMessageText": { "type": "string" },
+        "lastMessageSenderId": { "type": "string" },
+        "lastMessageType": { "type": "string" },
+        "inviteLink": { "type": "string" },
+        "onlyAdminsCanSend": { "type": "boolean" },
+        "onlyAdminsCanEditInfo": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["conversationId", "ownerId", "participantIds", "adminIds", "title", "isGroup", "lastMessageText", "createdAt", "updatedAt"]
+    },
+    "ChatMessage": {
+      "title": "ChatMessage",
+      "description": "Message inside a conversation",
+      "type": "object",
+      "properties": {
+        "messageId": { "type": "string" },
+        "conversationId": { "type": "string" },
+        "senderId": { "type": "string" },
+        "senderName": { "type": "string" },
+        "participantIds": { "type": "array", "description": "Denormalized member UIDs for zero-lookup rule verification" },
+        "text": { "type": "string" },
+        "messageType": { "type": "string", "enum": ["TEXT", "IMAGE", "VIDEO", "AUDIO", "VOICE_NOTE", "DOCUMENT", "LOCATION", "CONTACT", "GIF", "STICKER"] },
+        "mediaUrl": { "type": "string" },
+        "mediaFileName": { "type": "string" },
+        "mediaMimeType": { "type": "string" },
+        "mediaFileSize": { "type": "integer" },
+        "mediaDurationSec": { "type": "integer" },
+        "replyToMessageId": { "type": "string" },
+        "replyToPreview": { "type": "string" },
+        "isForwarded": { "type": "boolean" },
+        "isEdited": { "type": "boolean" },
+        "isDeleted": { "type": "boolean" },
+        "isPinned": { "type": "boolean" },
+        "isStarred": { "type": "boolean" },
+        "reactionsSummary": { "type": "string" },
+        "status": { "type": "string", "enum": ["SENDING", "SENT", "DELIVERED", "READ", "FAILED"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["messageId", "conversationId", "senderId", "senderName", "participantIds", "text", "messageType", "status", "createdAt", "updatedAt"]
+    },
+    "CallSession": {
+      "title": "CallSession",
+      "description": "WebRTC voice/video call session and signaling state",
+      "type": "object",
+      "properties": {
+        "callId": { "type": "string" },
+        "callerId": { "type": "string" },
+        "callerName": { "type": "string" },
+        "calleeId": { "type": "string" },
+        "calleeName": { "type": "string" },
+        "participantIds": { "type": "array" },
+        "callType": { "type": "string", "enum": ["VOICE", "VIDEO"] },
+        "state": { "type": "string", "enum": ["RINGING", "ACCEPTED", "CONNECTED", "REJECTED", "ENDED", "MISSED", "TIMEOUT"] },
+        "sdpOffer": { "type": "string" },
+        "sdpAnswer": { "type": "string" },
+        "iceCandidatesJson": { "type": "string" },
+        "durationSec": { "type": "integer" },
+        "networkQuality": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["callId", "callerId", "callerName", "calleeId", "calleeName", "participantIds", "callType", "state", "durationSec", "createdAt", "updatedAt"]
+    },
+    "AbuseReport": {
+      "title": "AbuseReport",
+      "description": "Moderation and safety report",
+      "type": "object",
+      "properties": {
+        "reportId": { "type": "string" },
+        "reporterId": { "type": "string" },
+        "targetUserId": { "type": "string" },
+        "reason": { "type": "string" },
+        "details": { "type": "string" },
+        "status": { "type": "string", "enum": ["OPEN", "REVIEWED", "RESOLVED"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["reportId", "reporterId", "targetUserId", "reason", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "User profiles keyed by UID"
+    },
+    "/users/{userId}/contacts/{contactId}": {
+      "schema": { "$ref": "#/entities/ContactEntry" },
+      "description": "User personal contacts and blocked users"
+    },
+    "/conversations/{conversationId}": {
+      "schema": { "$ref": "#/entities/Conversation" },
+      "description": "1-to-1 and Group conversations"
+    },
+    "/conversations/{conversationId}/messages/{messageId}": {
+      "schema": { "$ref": "#/entities/ChatMessage" },
+      "description": "Messages inside a conversation"
+    },
+    "/calls/{callId}": {
+      "schema": { "$ref": "#/entities/CallSession" },
+      "description": "WebRTC signaling & call history records"
+    },
+    "/reports/{reportId}": {
+      "schema": { "$ref": "#/entities/AbuseReport" },
+      "description": "Abuse and moderation reports"
+    }
+  }
+}
